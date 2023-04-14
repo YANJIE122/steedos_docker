@@ -1,0 +1,24 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "services/*",
+    "steedos-packages/*",
+    "steedos-app",
+    "nodered-app"
+  ],
+  "scripts": {
+    "start": "moleculer-runner services/*/package.service.js --hot --repl",
+    "repl": "moleculer-runner --repl",
+    "nodered": "node-red --settings nodered.config.js",
+    "start:steedos": "steedos start",
+    "docker:steedos": "docker-compose -f docker-compose-steedos.yml up",
+    "docker:db": "docker-compose -f docker-compose-db.yml up"
+  },
+  "dependencies": {
+    "@steedos/service-community": "^2.4.12-beta.1",
+    "@steedos/node-red-contrib-steedos": "^2.4.0",
+    "node-red": "^3.0.2"
+  }
+}
